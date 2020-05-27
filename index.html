@@ -1,0 +1,47 @@
+<!-- Создайте страницу с текстовым полем ввода. При нажатии на кнопку подтверждения, данные из поля должны отображаться в документе, поле ввода – очищаться,
+    а фоновый цвет документа меняться в зависимости от введённого значения. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Data option</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="wrapper">
+            <h2>Enter a color in the field or select from the color chart</h2>
+            <input class="input" type="color" v-model.string="text"><br>
+            <textarea cols="50" rows="5" v-model.string="text"></textarea><br>
+            <button v-on:click="addText">Click me and you will see the magic</button>
+        </div>
+    </div>
+    <script>
+        var sample = new Vue({
+            el: '#app',
+            data: {
+                text: '',
+            },
+            methods: {
+                addText: function () {
+                    let span = document.createElement("span");
+                    let br = document.createElement("br");
+                    span.textContent = this.text;
+                    document.body.style.backgroundColor = this.text;
+                    document.body.appendChild(span);
+                    this.text = '';
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

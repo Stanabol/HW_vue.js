@@ -1,0 +1,14 @@
+.wrapper {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.input {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+span {
+    display: flex;
+    justify-content: center;
+}
